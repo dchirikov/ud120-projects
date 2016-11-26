@@ -28,4 +28,12 @@ features_train, features_test, labels_train, labels_test = preprocess()
 
 #########################################################
 
-
+import sklearn as sk
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+clf = tree.DecisionTreeClassifier()
+clf = tree.DecisionTreeClassifier(min_samples_split=40)
+clf = clf.fit(features_train, labels_train)
+labels_predict = clf.predict(features_test)
+accuracy_score(labels_test, labels_predict)
+features_train.shape
